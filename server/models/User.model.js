@@ -20,14 +20,14 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
-  todos: [{
-    task: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    isCompleted: Boolean
-  }]
+  // todos: [{
+  //   task: {
+  //     type: String,
+  //     required: true,
+  //     trim: true
+  //   },
+  //   isCompleted: Boolean
+  // }]
 })
 const User = mongoose.model("User", userSchema)
 module.exports = User

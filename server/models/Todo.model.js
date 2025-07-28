@@ -7,7 +7,12 @@ const todoSchema = new Schema({
     required: true,
     trim: true
   },
-  isCompleted: Boolean
+  isCompleted: Boolean,
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 }, { timestamps: true })
 
 const Todo = mongoose.model('Todo', todoSchema)
