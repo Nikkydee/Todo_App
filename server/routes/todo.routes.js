@@ -37,13 +37,34 @@ router.get('/:userid/todos', (req, res) => {
     })
 })
 
-router.put('/todos', (req, res) => {
+router.put('/todos/:todoId', (req, res) => {
+  const todoId = req.params.todoId
   const { todo } = req.body
-  
-  Todo.findOneAndUpdate({ _id: req.payload._id }, { todos: todo })
+
+  if (!todoId) {
+    return res.status(400).json({ message: "Todo Id is required" });
+  }
+
+  // Ensure the userId is retrieved from the payload
+  const userId = req.payload._id;
+
+  // Validate userId from payload
+  if (!req.payload || !req.payload._id) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  Todo.findOneAndUpdate({ _id: todoId, userId },{ task: todo }, {new: true})
     .then((updatedTodo) => {
-      res.status(200).json({ todos: updatedTodo })
+      console.log(`The updated field is ${updatedTodo}`)
+      if (!updatedTodo) {
+        return res.status(404).json({ message: "Todo not found or unauthorized" });
+      }
+      res.status(200).json({ todo: updatedTodo })
     })
+    .catch((err) => {
+      console.error("Error updating todo:", err);
+      res.status(500).json({ message: "Internal Server Error" });
+    });
 })
 
 router.post('/todos', (req, res) => {
@@ -83,7 +104,7 @@ router.delete('/todos/:todoId', (req, res) => {
     })
     .catch((err) => {
       console.error(`Error deleting todo: ${err}`)
-      res.status(500).json({ message: "Internal Server Error" })
+      res.status(404).json({ message: "Todo not found" })
     })
 })
 
