@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react"
 import { AuthContext } from "../context/auth.context"
 import { ThemeContext } from "../context/theme.context"
 import "../styles/Home.css"
-import { fetchUsersTodos, saveTodos, newTodo, deleteTodo } from "../utils/todo.utils"
+import { fetchUsersTodos, saveTodos, newTodo, removeTodo } from "../utils/todo.utils"
 
 export const Home = () => {
   const { toggleDarkmodeHandler } = useContext(ThemeContext)
@@ -70,8 +70,13 @@ export const Home = () => {
 
   const deleteTodo = (task) => {
     const updatedTodos = todos.filter(todo => todo.task !== task)
-    console.log(updatedTodos)
-    setTodos(updatedTodos)
+    const deleteTodo = todos.filter(todo => todo.task == task)
+
+    console.log(`The deleted todo is ${JSON.stringify(deleteTodo)}`)
+    removeTodo(deleteTodo[0]._id, authToken)
+    .then(deletedTodo => {
+      setTodos(updatedTodos)
+    })
   }
 
   const toggleTodoCompleted = (task) => {

@@ -17,7 +17,7 @@ export const newTodo = (todo, authToken) => {
   })
 }
 
-export const deleteTodo = (todoId, authToken) => {
+export const removeTodo = (todoId, authToken) => {
   return axios.delete(`${process.env.REACT_APP_API_URL}/api/todos/${todoId}`, 
     { headers: { Authorization: `Bearer ${authToken}` }}
   )
@@ -27,7 +27,7 @@ export const deleteTodo = (todoId, authToken) => {
 }
 
 export const saveTodos = (todos, authToken) => {
-  axios.put(`${process.env.REACT_APP_API_URL}/api/save-todos`, 
+  axios.put(`${process.env.REACT_APP_API_URL}/api/todos`, 
     { todos }, 
     { headers: { Authorization: `Bearer ${authToken}`}}
   )
