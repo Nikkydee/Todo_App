@@ -1,35 +1,29 @@
 import axios from "axios"
 
-export const fetchUsersTodos = (userId, authToken) => {
-  return axios.get(`${process.env.REACT_APP_API_URL}/api/${userId}/todos`, { headers: { Authorization: `Bearer ${authToken}` } })
-    .then(response => {
-      return response.data.todos
-    })
+export const fetchUsersTodos = async (userId, authToken) => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/${userId}/todos`, 
+    { headers: { Authorization: `Bearer ${authToken}` } })
+  return response.data.todos
 }
 
-export const newTodo = (todo, authToken) => {
-  return axios.post(`${process.env.REACT_APP_API_URL}/api/todos`,
+export const newTodo = async (todo, authToken) => {
+  const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/todos`,
     { todo },
     { headers: { Authorization: `Bearer ${authToken}` } }
   )
-    .then(response => {
-      return response.data.todo
-    })
+  return response.data.todo
 }
 
-export const removeTodo = (todoId, authToken) => {
-  return axios.delete(`${process.env.REACT_APP_API_URL}/api/todos/${todoId}`,
+export const removeTodo = async (todoId, authToken) => {
+  const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/todos/${todoId}`,
     { headers: { Authorization: `Bearer ${authToken}` } }
   )
-    .then(response => {
-      return response.data.todo
-    })
+  return response.data.todo
 }
 
 export const editTodos = (task, id, authToken) => {
-  console.log(`The task being id is ${id}`)
   axios.put(`${process.env.REACT_APP_API_URL}/api/todos/${id}`,
-    task,
+    { task },
     { headers: { Authorization: `Bearer ${authToken}` } }
   ).then(response => {
     console.log(response.data)
