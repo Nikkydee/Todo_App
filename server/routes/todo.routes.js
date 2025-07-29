@@ -39,7 +39,7 @@ router.get('/:userid/todos', (req, res) => {
 
 router.put('/todos/:todoId', (req, res) => {
   const todoId = req.params.todoId
-  const { todo } = req.body
+  const todo = req.body
 
   if (!todoId) {
     return res.status(400).json({ message: "Todo Id is required" });
@@ -53,7 +53,7 @@ router.put('/todos/:todoId', (req, res) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  Todo.findOneAndUpdate({ _id: todoId, userId },{ task: todo }, {new: true})
+  Todo.findOneAndUpdate({ _id: todoId, userId }, { task: todo.task }, { new: true })
     .then((updatedTodo) => {
       console.log(`The updated field is ${updatedTodo}`)
       if (!updatedTodo) {
