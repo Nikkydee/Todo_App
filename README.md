@@ -38,9 +38,9 @@ It is a MERN application (MongoDB, ExpressJS, ReactJS, NodeJs) that uses jsonweb
 
 ## Setup Instructions
 This is a full stack application making use of MongoDB and ExpressJS for backend, React for front end and Cypress test framework and Newman for test automation.
-- Click [here](/client/README.md) to get started with the frontend set up. 
-- For the backend set up click [here](/server/README.md) and 
-- Cick [here](/test/README.md) for instructions to set up the test framework.
+- Click [here](/client/README.md) to get started with the **frontend** set up. 
+- Click [here](/server/README.md) for the **backend** set up and 
+- Click [here](/test/README.md) for instructions to set up the **test** framework.
   
 ## Screenshots
 ![image](https://github.com/Fabian04HV/react-todo-app/assets/84227257/5c925af0-6964-4943-8aa7-a11ed6e8b298)
