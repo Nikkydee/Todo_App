@@ -1,4 +1,4 @@
-# todo-app
+# Todo App
 This is a todo-app with user authentication and modern CSS Design. 
 It is a MERN application (MongoDB, ExpressJS, ReactJS, NodeJs) that uses jsonwebtoken to authenticate the users (for login and signup).
 ## Features:
