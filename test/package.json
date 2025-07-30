@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy-chrome": "cypress run --browser chrome --headed",
-    "cy-firefox": "cypress run --browser firefox --headed"
+    "cy-firefox": "cypress run --browser firefox --headed",
+    "test-api": "newman run API/e2e/Todo_App.postman_collection.json -r htmlextra,cli --reporter-htmlextra-title 'Todo App API Tests' --reporter-htmlextra-dark-mode true --reporter-htmlextra-export ./reports/todo-api-report.html --reporter-htmlextra-displayProgressBar true --reporter-htmlextra-show-test-summary true --reporter-htmlextra-show-test-details true --reporter-htmlextra-show-test-timeline true"
   },
   "keywords": [],
   "author": "",
