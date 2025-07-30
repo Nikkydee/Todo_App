@@ -50,3 +50,7 @@ This is a full stack application making use of MongoDB and ExpressJS for backend
 ![image](https://github.com/Fabian04HV/react-todo-app/assets/84227257/199da996-946b-4394-846a-66806e29edfb)
 ![image](https://github.com/Fabian04HV/react-todo-app/assets/84227257/903b61c3-b258-403d-af01-bd1054975b25)
 ![image](https://github.com/Fabian04HV/react-todo-app/assets/84227257/a521a6b0-0aa1-44f0-8ff6-c8b24a6e9506)
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.

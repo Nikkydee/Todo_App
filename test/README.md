@@ -73,3 +73,6 @@ Give a ⭐️ if you like this project!
 - [NPM](https://www.npmjs.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
+## 📝 License
+
+This project is [MIT](../LICENSE) licensed.
