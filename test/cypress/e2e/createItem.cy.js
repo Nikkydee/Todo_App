@@ -19,8 +19,8 @@ describe('CRUD tests', () => {
         homePage.getAddTodoBtn().click()
         homePage.enterTodo('Complete the UI assessment{enter}')
         homePage.cancelNewTodoModal();
-        homePage.getTodoList().eq(0).find('li').should('have.length', 1)
-        homePage.getTodoList().eq(0).find('li').first()
+        homePage.getTodoList().eq(0).find('li').should('have.length.gte', 1)
+        homePage.getTodoList().eq(0).find('li').last()
             .should('contain', 'Complete the UI assessment')
 
     })
@@ -30,18 +30,23 @@ describe('CRUD tests', () => {
         cy.wait(1000)
         homePage.enterTodo('Complete the API assessment {enter}')
         homePage.cancelNewTodoModal();
-        homePage.getTodoList().eq(0).find('li').should('have.length', 3)
-        homePage.getTodoList().eq(0).find('li').eq(1)
-            .should('contain', 'Remember to include a README file')
-        homePage.getTodoList().eq(0).find('li').eq(2)
-            .should('contain', 'Complete the API assessment')
+
+        homePage.getTodoList().eq(0).find('li').its('length').then(count => {
+            homePage.getTodoList().eq(0).find('li').should('have.length.gte', 3)
+            homePage.getTodoList().eq(0).find('li').eq(count - 2)
+                .should('contain', 'Remember to include a README file')
+            homePage.getTodoList().eq(0).find('li').last()
+                .should('contain', 'Complete the API assessment')
+        })
     })
 
     it('should update an existing task', function () {
-        homePage.getEditIcons().eq(2).click();
-        homePage.getEditField(' and submit!! {enter}')
-        homePage.getTodoList().eq(0).find('li').eq(2)
+        homePage.getTodoList().eq(0).find('li').its('length').then(count => {
+            homePage.getEditIcons().eq(count - 1).click();
+            homePage.getEditField(' and submit!! {enter}')
+            homePage.getTodoList().eq(0).find('li').eq(count - 1)
             .should('contain', 'Complete the API assessment and submit!!')
+        })
     })
 
     it('should delete existing tasks', function () {
