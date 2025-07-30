@@ -55,7 +55,6 @@ router.put('/todos/:todoId', (req, res) => {
 
   Todo.findOneAndUpdate({ _id: todoId, userId }, { task: todo.task }, { new: true })
     .then((updatedTodo) => {
-      console.log(`The updated field is ${updatedTodo}`)
       if (!updatedTodo) {
         return res.status(404).json({ message: "Todo not found or unauthorized" });
       }

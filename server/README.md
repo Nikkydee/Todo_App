@@ -6,15 +6,9 @@
 
 ## Built With
 
-- JavaScript
-- React
-- HTML
-- CSS
-- Webpack
-- Git & Github
-- react, react-dom, react-router-dom
-- axios
-- dotenv
+- MongoDB
+- ExpressJS
+- NodeJS
 
 ## Getting Started
 
@@ -31,18 +25,18 @@
 git clone https://github.com/Nikkydee/Todo_App.git
 ```
 - To get the curent working tree, git fetch --all, then checkout to `main` branch.
-- Once in the repository change driectory to the client folder by running `cd client`
+- Once in the repository change driectory to the server folder by running `cd server`
 - Create a file and name it `.env`. The content of this file is sent with submission document.
 - Install dependecies by running
 ```bash
  npm install
  ```
-- Finally, to start the front end application, run 
+- Finally, to run the server run 
 ```bash
   npm start
   ```
-- The application will launch on http://localhost:3000
-- To connect the backend follow the instruction [here](../server/README.md)
+- The server will start listening on http://localhost:8082
+- To start the front end application follow the instruction [here](../client/README.md)
 
 ## Author
 
