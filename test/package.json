@@ -1,12 +1,13 @@
 {
-  "name": "Todo App",
+  "name": "Todo_App",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy-chrome": "cypress run --browser chrome --headed",
-    "cy-firefox": "cypress run --browser firefox --headed"
+    "cy-firefox": "cypress run --browser firefox --headed",
+    "test-api": "newman run API/e2e/Todo_App.postman_collection.json -r htmlextra,cli --reporter-htmlextra-title 'Todo App API Tests' --reporter-htmlextra-dark-mode true --reporter-htmlextra-export ./reports/todo-api-report.html --reporter-htmlextra-displayProgressBar true --reporter-htmlextra-show-test-summary true --reporter-htmlextra-show-test-details true --reporter-htmlextra-show-test-timeline true"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,8 @@
     "cypress": "^12.7.0"
   },
   "dependencies": {
-    "dotenv": "^17.2.1"
+    "dotenv": "^17.2.1",
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
   }
 }
