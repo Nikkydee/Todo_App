@@ -32,7 +32,10 @@ git clone https://github.com/Nikkydee/Todo_App.git
 ```
 - To get the curent working tree, git fetch --all, then checkout to `main` branch.
 - Once in the repository change driectory to the client folder by running `cd client`
-- Create a file and name it `.env`. The content of this file is sent with submission document.
+- Create a file and name it `.env`. Copy and paste the following inside of it
+```bash
+REACT_APP_API_URL=http://localhost:8082
+```
 - Install dependecies by running
 ```bash
  npm install

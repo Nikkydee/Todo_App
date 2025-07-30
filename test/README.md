@@ -23,7 +23,7 @@
 git clone https://github.com/Nikkydee/Todo_App.git
 ```
 - Once in the repository change driectory to the test folder by running `cd test`
-- Create a file and name it `.env`. The content of this file is sent with submission document.
+Create a file and name it `.env`. The content of this file can be accessed [here](https://docs.google.com/document/d/13FhwSmokWnsl6sHcwigj3ZgK9nHrm8E3ROf-I4SJjWo/edit?usp=sharing) (Only test/.env). If you have created a user on the application, feel free to change the email and password to your user.
 - To get the curent working tree
 ```bash
  git fetch --all

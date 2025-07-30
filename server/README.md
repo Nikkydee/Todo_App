@@ -26,7 +26,7 @@ git clone https://github.com/Nikkydee/Todo_App.git
 ```
 - To get the curent working tree, git fetch --all, then checkout to `main` branch.
 - Once in the repository change driectory to the server folder by running `cd server`
-- Create a file and name it `.env`. The content of this file is sent with submission document.
+- Create a file and name it `.env`. The content of this file can be accessed [here](https://docs.google.com/document/d/13FhwSmokWnsl6sHcwigj3ZgK9nHrm8E3ROf-I4SJjWo/edit?usp=sharing) (Only server/.env)
 - Install dependecies by running
 ```bash
  npm install
